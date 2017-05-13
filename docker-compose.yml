@@ -1,0 +1,32 @@
+version: "3"
+services:
+    clickhouse:
+        build: clickhouse
+        image: ru.shadam/clickhouse:0.1
+        ulimits:
+          nofile:
+            soft: 262144
+            hard: 262144
+        ports:
+          - 8123:8123
+          - 9000:9000
+        networks:
+          - internal
+    graphouse:
+        build: graphouse
+        image: ru.shadam/graphouse:0.1
+        ports:
+          - 2003:2003
+        networks:
+            - internal
+    graphite-web:
+        build: graphite-web
+        image: ru.shadam/graphite-web:0.1
+        networks:
+            - internal
+        ports:
+          - 9090:9090
+        environment:
+          - GRAPHOUSE_URL=http://graphouse:2005
+networks:
+    internal:
