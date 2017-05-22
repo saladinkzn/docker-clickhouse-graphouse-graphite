@@ -3,3 +3,5 @@ STORAGE_FINDERS = (
 )
 
 GRAPHOUSE_URL = 'http://graphouse:2005'
+
+DEBUG = True

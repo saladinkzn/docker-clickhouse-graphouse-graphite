@@ -7,7 +7,8 @@ RUN apt-get update && \
     pip install requests && \
     pip install cairocffi && \
     pip install --no-binary=:all: https://github.com/graphite-project/graphite-web/tarball/master && \
-    pip install uwsgi
+    pip install uwsgi && \
+    pip install whitenoise 
 
 # settings
 ADD graphouse.py /opt/graphite/webapp/graphite/
