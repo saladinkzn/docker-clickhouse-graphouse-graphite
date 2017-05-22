@@ -18,7 +18,7 @@ services:
         ports:
           - 2003:2003
         networks:
-            - internal
+          - internal
     graphite-web:
         build: graphite-web
         image: ru.shadam/graphite-web:0.1
@@ -28,5 +28,10 @@ services:
           - 9090:9090
         environment:
           - GRAPHOUSE_URL=http://graphouse:2005
+    clickhouse-migration:
+        build: clickhouse-migration
+        image: ru.shadam/clickhouse-migration:0.1
+        networks:
+          - internal
 networks:
     internal:
