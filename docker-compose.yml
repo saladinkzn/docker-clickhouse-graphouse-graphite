@@ -12,6 +12,8 @@ services:
           - 9000:9000
         networks:
           - internal
+        volumes:
+          - clickhouse:/var/lib/clickhouse
     graphouse:
         build: graphouse
         image: ru.shadam/graphouse:0.1
@@ -35,3 +37,5 @@ services:
           - internal
 networks:
     internal:
+volumes:
+  clickhouse:
